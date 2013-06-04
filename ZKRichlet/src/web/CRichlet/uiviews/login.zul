@@ -1,0 +1,30 @@
+<!-- it is a login page, no authentication protection and use anonymous template -->
+<zk>
+			<window id="frmLogin" position="center,center"
+				title="Login with you name" border="normal" hflex="min">
+				<vbox hflex="min" align="center">
+					<grid hflex="min">
+						<columns>
+							<column hflex="min" align="right" />
+							<column/>
+						</columns>
+						<rows>
+							<row>
+								Account :
+ 						        <combobox id="edAccount" autodrop="true" width="200px"/>
+							</row>
+							<row>
+								Password :
+								<textbox id="edPassword" type="password" width="200px" />
+							</row>
+						</rows>
+					</grid>
+					<label id="lbMessage" sclass="warn" value="&#160;" />
+					<div style="text-align: right;">
+					   <button id="btnLogin" label="Login" image="~./CRichlet/images/check.png" />
+                       <button id="btnExit" label="Exit" image="~./CRichlet/images/exit.png" />
+                       <button id="btnHelp" label="Help" image="~./CRichlet//images/help.png" />
+					</div>
+				</vbox>
+			</window>
+</zk>

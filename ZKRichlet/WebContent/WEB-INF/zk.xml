@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+	Created by ZK Studio
+-->
+
+<zk>
+    <richlet>
+        <richlet-name>Test</richlet-name><!-- your preferred name -->
+        <richlet-class>ZKRichlet.CRichlet</richlet-class><!-- your class name, of course -->
+    </richlet>
+
+    <richlet-mapping>
+        <richlet-name>Test</richlet-name>
+        <url-pattern>/</url-pattern>
+    </richlet-mapping>
+
+    <library-property>
+       <name>org.zkoss.web.preferred.locale</name>
+       <value>es</value>
+    </library-property>
+
+    <library-property>
+        <name>org.zkoss.zul.progressbox.position</name>
+        <value>left, top</value>
+    </library-property>
+
+    <system-config>
+        <disable-event-thread>false</disable-event-thread>
+    </system-config>
+
+
+	<device-config>
+		<device-type>ajax</device-type>
+		<timeout-uri></timeout-uri><!-- An empty URL can cause the browser to reload the same URL -->
+	</device-config>
+</zk>

@@ -1,0 +1,56 @@
+<?page title="anonymous desktop" contentType="text/html;charset=UTF-8"?>
+<zk>
+    <!-- anonymous desktop -->
+    <borderlayout apply="ZKRichlet.CAnonymousDesktopController" id="DesktopLayout" width="1024px" height="768px">
+        <north style="background-color: red" autoscroll="true" height="150px" border="none">
+        </north>
+        <west style="background-color: yellow" autoscroll="true" width="200px" border="none">
+                <vlayout id="LeftVLayout" spacing="0">
+                    <panel width="100%" border="normal"
+                        title="Navigation">
+                        <panelchildren style="padding:5px;">
+                            <vbox>
+                                <toolbarbutton label="Home" />
+                                <toolbarbutton label="Sitemap" />
+                                <toolbarbutton
+                                    label="Statement of Direction" />
+                                <toolbarbutton label="ZK Team" />
+                                <toolbarbutton label="Releases" />
+                                <toolbarbutton label="Calender" />
+                            </vbox>
+                        </panelchildren>
+                    </panel>
+                    <panel width="100%" border="normal"
+                        title="Features">
+                        <panelchildren>
+                            <html>
+                                <![CDATA[ <ul> <li>Server+client
+                                Fusion</li> <li>Ajax-as-a-Service</li>
+                                <li>The Event Queue</li> <li>jQuery
+                                Based</li> <li>SEO Friendly</li>
+                                <li>Auto Testing</li> </ul> ]]>
+                            </html>
+                        </panelchildren>
+                    </panel>
+                </vlayout>        
+        </west>
+        <center style="background-color: #00FFFF" autoscroll="true" border="none">
+        </center>
+        <east style="background-color: blue" autoscroll="true" width="200px" border="none">
+                    <panel width="100%" border="normal"
+                        title="Why ZK ? ">
+                        <panelchildren>
+                            <html>
+                                <![CDATA[ <ul> <li>Productivity</li>
+                                <li>Security</li> <li>Performance</li>
+                                <li>Totally Control</li> <li>Auto
+                                Testing</li> <li>Scalability</li>
+                                <li>Flexibility</li> </ul> ]]>
+                            </html>
+                        </panelchildren>
+                    </panel>
+        </east>
+        <south style="background-color: green" autoscroll="true" height="150px" border="none">
+        </south>
+    </borderlayout>
+</zk>

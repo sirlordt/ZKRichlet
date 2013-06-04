@@ -1,0 +1,16 @@
+<?page title="desktop" contentType="text/html;charset=UTF-8"?>
+<zk>
+    <!-- anonymous desktop -->
+    <borderlayout hflex="1" vflex="1">
+        <north title="north" height="100px" flex="true" maxsize="250" splittable="true" collapsible="true">
+        </north>
+        <west title="west" width="100px" flex="true" maxsize="250" splittable="true" collapsible="true">
+        </west>
+        <center autoscroll="true" border="none">
+        </center>
+        <east title="east" width="100px" flex="true" maxsize="250" splittable="true" collapsible="true">
+        </east>
+        <south title="south" height="100px" flex="true" maxsize="250" splittable="true" collapsible="true">
+        </south>
+    </borderlayout>
+</zk>

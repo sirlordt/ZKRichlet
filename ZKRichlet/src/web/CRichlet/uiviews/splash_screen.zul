@@ -1,0 +1,114 @@
+<?meta content="text/html; charset=UTF-8" pageEncoding="UTF-8"?>
+<?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c" ?>
+<zk>
+	
+	<style>
+		
+		.z-window-overlapped-cnt {
+            margin: 0;
+            padding: 0px; 
+            background: transparent; 
+            overflow: hidden; 
+            zoom: 1; 
+		}
+
+        .product-name {
+
+            font-size: xx-large;     
+            color: white;   
+        
+        }
+		
+        .product-version {
+
+            font-size: large;     
+            color: white;   
+        
+        }
+        
+        .product-slogan {
+
+            font-size: medium;     
+            color: white;   
+            font-style: italic;
+        
+        }
+        
+	</style>
+	
+<!-- background-image: url(${c:encodeURL('~./CRichlet/images/product_splash_screen_01.png')}); -->
+<!-- style="background-color: green" -->
+<!-- background-repeat: no-repeat; -->
+
+    <window apply="ZKRichlet.CSplashScreenController" border="normal" id="SplashScreen" width="406px" height="300px" mode="overlapped" position="center,center">
+
+        <borderlayout id="DesktopLayout" width="100%" height="100%">
+
+            <center border="none">
+               
+               <div id="background_image" width="100%" height="100%" style="background-image: url(${c:encodeURL('~./CRichlet/images/product_splash_screen_01.png')}); background-repeat: no-repeat;">
+                 
+                 <absolutelayout>
+
+                   <absolutechildren x="20" y="30" width="200px" height="200px">
+                   
+                      <image id="imgProductLogo" src="~./CRichlet/images/product_logo.png"/>
+                      
+                   </absolutechildren>
+                 
+                   <absolutechildren x="150" y="70" width="200px" height="50px">
+                   
+                      <label sclass="product-name" id="lbProductName" value="Aurora ERP"/>
+                      
+                   </absolutechildren>
+
+                   <absolutechildren x="150" y="105" width="200px" height="50px">
+                     
+                      <label sclass="product-version" width="200px" id="lbProductVersion" value="Versión: 1.0.0.0"/>
+                      
+                   </absolutechildren>
+
+                   <absolutechildren  x="0" y="160" width="100%" height="50px">
+                      
+                      <hbox width="100%" pack="center">
+                          <label sclass="product-slogan" width="200px" id="lbProductSlogan" value="&quot;A serious ERP&quot;"/>
+                      </hbox>
+                       
+                   </absolutechildren>
+
+                   <absolutechildren x="10" y="200" width="370px" height="80px">
+
+                      <hbox id="ModulesLoaded">
+                      </hbox>
+                   
+                   </absolutechildren>
+                   
+                 </absolutelayout>
+                   
+                 
+               </div>
+
+               
+            </center>
+  
+            <south border="none" id="lBottomLayout" Style="padding: 5px;" height="35px" >
+        
+                   <div>
+
+              	      <label id="lbMessageProgress" value="Starting..." />
+
+              	      <separator height="5px"></separator>
+
+              	      <progressmeter id="ProgressBar" value="0" width="380px" />
+
+                   </div>
+                
+            </south>
+        
+        </borderlayout>
+    
+        <timer id="LoadTimer" delay="1000" repeats="true"/>
+
+    </window>
+    
+</zk>
