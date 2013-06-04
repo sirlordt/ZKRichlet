@@ -1,8 +1,12 @@
 package ZKRichlet;
 
+import java.util.HashMap;
+
 import org.zkoss.zk.ui.*;
 import org.zkoss.zul.Borderlayout;
-import org.zkoss.zul.Center;
+import org.zkoss.zul.Vlayout;
+//import org.zkoss.zul.Center;
+//import org.zkoss.zul.Hlayout;
 //import org.zkoss.zk.ui.event.*;
 //import org.zkoss.zul.*;
 
@@ -30,7 +34,17 @@ public class CRichlet extends GenericRichlet {
     	
 		if ( session.getAttribute( "app_initiated" ) == null ) { //Splash screen
 			
-			Components = Executions.getCurrent().createComponents( "~./CRichlet/uiviews/splash_screen.zul", null );
+			HashMap<String,String> Args = new HashMap<String,String>(); 
+			
+			Args.put( "background_image" , "~./CRichlet/images/product_splash_screen_01.png" );
+			Args.put( "product_logo" , "~./CRichlet/images/product_logo.png" );
+			Args.put( "product_name" , "Aurora" );
+			Args.put( "product_edition" , "Enterprise Resource Planning" );
+			Args.put( "product_target" , "Business" );
+			Args.put( "product_slogan" , "\"A serius ERP\"" );
+			Args.put( "product_version" , "Versión: 1.0.0.0 Chufluca"  );
+			
+			Components = Executions.getCurrent().createComponents( "~./CRichlet/uiviews/splash_screen.zul", Args );
 			
 		}
 		else if ( UserCredential == null || UserCredential.isAnonymous() ) { //Anonymous desktop
@@ -51,9 +65,10 @@ public class CRichlet extends GenericRichlet {
 				
 				}
     			
-    			Center CenterZone = DesktopLayout.getCenter();
+				Vlayout InnerCenterLayout = (Vlayout) Components[ 0 ].getFellow( "InnerCenterLayout" );
     			
-    			Executions.getCurrent().createComponents( "~./CRichlet/uiviews/login.zul",  CenterZone, null );
+    			Executions.getCurrent().createComponents( "~./CRichlet/uiviews/login.zul", InnerCenterLayout, null );
+    			//Executions.getCurrent().createComponents( "~./CRichlet/uiviews/Window1.zul", InnerCenterLayout, null );
     			
     		}
     		catch ( Exception Ex ) {

@@ -18,10 +18,19 @@
             color: white;   
         
         }
-		
-        .product-version {
+        
+        .product-edition {
 
-            font-size: large;     
+            font-size: normal;     
+            font-weight: bold;
+            color: white;   
+        
+        }
+
+        .product-target {
+
+            font-size: normal;     
+            font-weight: bold;
             color: white;   
         
         }
@@ -30,7 +39,16 @@
 
             font-size: medium;     
             color: white;   
-            font-style: italic;
+            font-style: oblique;
+            font-weight: bold;
+        
+        }
+        
+        .product-version {
+
+            font-size: normal;     
+            color: white;   
+            font-weight: bold;
         
         }
         
@@ -46,34 +64,48 @@
 
             <center border="none">
                
-               <div id="background_image" width="100%" height="100%" style="background-image: url(${c:encodeURL('~./CRichlet/images/product_splash_screen_01.png')}); background-repeat: no-repeat;">
+               <div id="BackgroundLayer" width="100%" height="100%" >
                  
                  <absolutelayout>
 
                    <absolutechildren x="20" y="30" width="200px" height="200px">
                    
-                      <image id="imgProductLogo" src="~./CRichlet/images/product_logo.png"/>
+                      <image id="imgProductLogo"/>
                       
                    </absolutechildren>
                  
-                   <absolutechildren x="150" y="70" width="200px" height="50px">
+                   <absolutechildren  x="150" y="55" width="200px" height="40px">
                    
-                      <label sclass="product-name" id="lbProductName" value="Aurora ERP"/>
+                      <label sclass="product-name" id="lbProductName"/>
                       
                    </absolutechildren>
 
-                   <absolutechildren x="150" y="105" width="200px" height="50px">
-                     
-                      <label sclass="product-version" width="200px" id="lbProductVersion" value="Versión: 1.0.0.0"/>
+                   <absolutechildren x="150" y="95" width="250px" height="15px">
+                   
+                      <label sclass="product-edition" id="lbProductEdition"/>
                       
                    </absolutechildren>
 
-                   <absolutechildren  x="0" y="160" width="100%" height="50px">
+                   <absolutechildren x="150" y="115" width="200px" height="15px">
+                   
+                      <label sclass="product-target" id="lbProductTarget"/>
+                      
+                   </absolutechildren>
+                   
+                   <absolutechildren  x="0" y="150" width="100%" height="30px">
                       
                       <hbox width="100%" pack="center">
-                          <label sclass="product-slogan" width="200px" id="lbProductSlogan" value="&quot;A serious ERP&quot;"/>
+                          <label sclass="product-slogan" width="200px" id="lbProductSlogan"/>
                       </hbox>
                        
+                   </absolutechildren>
+
+                   <absolutechildren x="0" y="170" width="100%" height="30px">
+                     
+                      <hbox width="98%" pack="right">
+                          <label sclass="product-version" width="200px" id="lbProductVersion"/>
+                      </hbox>
+                      
                    </absolutechildren>
 
                    <absolutechildren x="10" y="200" width="370px" height="80px">

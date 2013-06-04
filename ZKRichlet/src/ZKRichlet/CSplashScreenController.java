@@ -9,6 +9,7 @@ import org.zkoss.zk.ui.select.annotation.Wire;
 import org.zkoss.zk.ui.Executions;
 import org.zkoss.zk.ui.Session;
 import org.zkoss.zk.ui.Sessions;
+import org.zkoss.zul.Div;
 import org.zkoss.zul.Hbox;
 import org.zkoss.zul.Image;
 import org.zkoss.zul.Label;
@@ -19,13 +20,40 @@ public class CSplashScreenController extends SelectorComposer<Component> {
 
 	private static final long serialVersionUID = -4362626162184372513L;
 
-	/*public void doAfterCompose( Component component ) throws Exception {
+	@Wire 
+	Div BackgroundLayer;
+	
+	@Wire
+	Image imgProductLogo;
+	
+	@Wire 
+	Label lbProductName;
+	
+	@Wire 
+	Label lbProductEdition;
 
-		super.doAfterCompose( component );
-		
-	}*/
+	@Wire 
+	Label lbProductTarget;
+	
+	@Wire 
+	Label lbProductSlogan;
+	
+	@Wire
+	Label lbProductVersion;
+	
+	@Wire 
+	Hbox ModulesLoaded;
+	
+	@Wire 
+    Label lbMessageProgress;
+	
+	@Wire 
+	Progressmeter ProgressBar;
 
-	int intProgress = 0;
+	@Wire
+	Timer LoadTimer; 
+
+	int intActualProgress = 0;
 	
 	int intMax = 15;
 	
@@ -33,18 +61,38 @@ public class CSplashScreenController extends SelectorComposer<Component> {
 	
 	int intCountModule = 1;
 	
-	@Wire
-	Timer LoadTimer; 
-	
-	@Wire 
-    Label lbMessageProgress;
-	
-	@Wire 
-	Progressmeter ProgressBar;
-	
-	@Wire
-	Hbox ModulesLoaded;
-	
+	public void doAfterCompose( Component component ) throws Exception {
+
+		super.doAfterCompose( component );
+
+		//style="background-image: url(${c:encodeURL('~./CRichlet/images/product_splash_screen_01.png')}); background-repeat: no-repeat;"
+		
+		BackgroundLayer.setStyle( "background-image: url('" + Executions.getCurrent().encodeURL( (String) Executions.getCurrent().getArg().get( "background_image" ) ) + "'); background-repeat: no-repeat;" );
+		
+		imgProductLogo.setSrc( (String) Executions.getCurrent().getArg().get( "product_logo" ) );
+
+		String strValue = (String) Executions.getCurrent().getArg().get( "product_name" );
+		
+		lbProductName.setValue( strValue );
+
+		strValue = (String) Executions.getCurrent().getArg().get( "product_edition" );
+		
+		lbProductEdition.setValue( strValue );
+		
+		strValue = (String) Executions.getCurrent().getArg().get( "product_target" );
+		
+		lbProductTarget.setValue( strValue );
+		
+		strValue = (String) Executions.getCurrent().getArg().get( "product_slogan" );
+		
+		lbProductSlogan.setValue( strValue );
+		
+		strValue = (String) Executions.getCurrent().getArg().get( "product_version" );
+		
+		lbProductVersion.setValue( strValue );
+		
+	}
+
 	@Listen( "onClientInfo = #SplashScreen")
 	public void onClientInfo( ClientInfoEvent event ) {
 		
@@ -58,11 +106,9 @@ public class CSplashScreenController extends SelectorComposer<Component> {
 	@Listen( "onTimer = #LoadTimer" )
     public void onTimerLoad( Event event ) {
 		
-		//int intProgress = ProgressBar.getValue();
+		intActualProgress += 1;
 		
-		intProgress += 1;
-		
-		if ( intProgress == intMax ) {
+		if ( intActualProgress == intMax + 1 ) {
 		
 			LoadTimer.stop();
 		
@@ -73,25 +119,27 @@ public class CSplashScreenController extends SelectorComposer<Component> {
 			Executions.sendRedirect( null );
 			
 		}   
+		else {
+		
+			ProgressBar.setValue( ( intActualProgress * 100 ) / intMax );
 
-		ProgressBar.setValue( ( intProgress * 100 ) / intMax );
-		
-		lbMessageProgress.setValue( "Loading module " + Integer.toString( intProgress ) + "..." );
-		
-		Image ImageModule = new Image();
-		
-		ImageModule.setSrc( "~./CRichlet/images/" + Integer.toString( intCountModule ) + ".png" );
+			lbMessageProgress.setValue( "Loading module " + Integer.toString( intActualProgress ) + "..." );
 
-		ModulesLoaded.insertBefore( ImageModule, OldImageModule );
+			Image ImageModule = new Image();
 
-		OldImageModule = ImageModule;
+			ImageModule.setSrc( "~./CRichlet/images/" + Integer.toString( intCountModule ) + ".png" );
+
+			ModulesLoaded.insertBefore( ImageModule, OldImageModule );
+
+			OldImageModule = ImageModule;
+
+			intCountModule += 1;
+
+			if ( intCountModule > 15 )
+				intCountModule = 1; 
 		
-		intCountModule += 1;
+		}
 		
-		if ( intCountModule > 15 )
-			intCountModule = 1; 
-		
-	}
-	
+	};
 	
 }
