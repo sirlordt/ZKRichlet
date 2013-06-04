@@ -42,7 +42,7 @@ public class CRichlet extends GenericRichlet {
 			Args.put( "product_edition" , "Enterprise Resource Planning" );
 			Args.put( "product_target" , "Business" );
 			Args.put( "product_slogan" , "\"A serius ERP\"" );
-			Args.put( "product_version" , "Versión: 1.0.0.0 Chufluca"  );
+			Args.put( "product_version" , "Versión: 1.0.0.0"  );
 			
 			Components = Executions.getCurrent().createComponents( "~./CRichlet/uiviews/splash_screen.zul", Args );
 			
