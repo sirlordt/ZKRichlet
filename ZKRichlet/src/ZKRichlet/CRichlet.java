@@ -328,7 +328,7 @@ public class CRichlet extends GenericRichlet {
 
     							Executions.activate( desktop );
 
-    							lbProgressMessage.setValue( "Loading " + UIModuleAnonymousDesktopInstance.getModuleName( null ) + "..." );
+    							lbProgressMessage.setValue( "Loading " + UIModuleAnonymousDesktopInstance.getModuleName() + "..." );
 
     							Executions.deactivate( desktop );
 
@@ -348,7 +348,7 @@ public class CRichlet extends GenericRichlet {
 
     							OldImageModule = ImageModule;
 
-    							lbProgressMessage.setValue( UIModuleAnonymousDesktopInstance.getModuleName( null ) + " loaded ..." );
+    							lbProgressMessage.setValue( UIModuleAnonymousDesktopInstance.getModuleName() + " loaded ..." );
     							ProgressBar.setValue( ( intIndexModule * 100 ) / intMaxModules );
 
     							intIndexModule += 1;
@@ -385,7 +385,7 @@ public class CRichlet extends GenericRichlet {
 
     							OldImageModule = ImageModule;
 
-    							lbProgressMessage.setValue( UIModuleAnonymousDesktopInstance.getModuleName( null ) + " loaded ..." );
+    							lbProgressMessage.setValue( UIModuleAnonymousDesktopInstance.getModuleName() + " loaded ..." );
     							ProgressBar.setValue( ( intIndexModule * 100 ) / intMaxModules );
 
     							Executions.deactivate( desktop );
@@ -447,7 +447,7 @@ public class CRichlet extends GenericRichlet {
 
     							Executions.activate( desktop );
 
-    							lbProgressMessage.setValue( "Loading " + UIModuleDesktopInstance.getModuleName( null ) + "..." );
+    							lbProgressMessage.setValue( "Loading " + UIModuleDesktopInstance.getModuleName() + "..." );
 
     							Executions.deactivate( desktop );
 
@@ -467,7 +467,7 @@ public class CRichlet extends GenericRichlet {
 
     							OldImageModule = ImageModule;
 
-    							lbProgressMessage.setValue( UIModuleDesktopInstance.getModuleName( null ) + " loaded ..." );
+    							lbProgressMessage.setValue( UIModuleDesktopInstance.getModuleName() + " loaded ..." );
     							ProgressBar.setValue( ( intIndexModule * 100 ) / intMaxModules );
 
     							intIndexModule += 1;
@@ -504,7 +504,7 @@ public class CRichlet extends GenericRichlet {
 
     							OldImageModule = ImageModule;
 
-    							lbProgressMessage.setValue( UIModuleDesktopInstance.getModuleName( null ) + " loaded ..." );
+    							lbProgressMessage.setValue( UIModuleDesktopInstance.getModuleName() + " loaded ..." );
     							ProgressBar.setValue( ( intIndexModule * 100 ) / intMaxModules );
 
     							Executions.deactivate( desktop );

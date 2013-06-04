@@ -12,7 +12,7 @@
 
     <richlet-mapping>
         <richlet-name>Test</richlet-name>
-        <url-pattern>/</url-pattern>
+        <url-pattern>/*</url-pattern>
     </richlet-mapping>
 
     <library-property>
