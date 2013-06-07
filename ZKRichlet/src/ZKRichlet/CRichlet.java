@@ -19,6 +19,7 @@ import org.zkoss.zul.Vlayout;
 import AbstractModules.CUIAbstractModuleAnonymousDesktop;
 import AbstractModules.CUIAbstractModule.DesktopPosition;
 import AbstractModules.CUIAbstractModuleDesktop;
+
 import Services.CAuthenticationService;
 import Services.CClassPathLoader;
 import Services.CUserCredential;
@@ -341,7 +342,7 @@ public class CRichlet extends GenericRichlet {
 
     							Image ImageModule = new Image();
 
-    							ImageModule.setSrc( UIModuleAnonymousDesktopInstance.getIconPath( "32x32" ) );
+    							ImageModule.setSrc( UIModuleAnonymousDesktopInstance.getMainIconPath( "24x24" ) );
 
     							ModulesLoaded.insertBefore( ImageModule, OldImageModule );
 
@@ -378,7 +379,7 @@ public class CRichlet extends GenericRichlet {
 
     							Image ImageModule = new Image();
 
-    							ImageModule.setSrc( UIModuleAnonymousDesktopInstance.getIconPath( "32x32" ) );
+    							ImageModule.setSrc( UIModuleAnonymousDesktopInstance.getMainIconPath( "24x24" ) );
 
     							ModulesLoaded.insertBefore( ImageModule, OldImageModule );
 
@@ -460,7 +461,7 @@ public class CRichlet extends GenericRichlet {
 
     							Image ImageModule = new Image();
 
-    							ImageModule.setSrc( UIModuleDesktopInstance.getIconPath( "32x32" ) );
+    							ImageModule.setSrc( UIModuleDesktopInstance.getMainIconPath( "24x24" ) );
 
     							ModulesLoaded.insertBefore( ImageModule, OldImageModule );
 
@@ -497,7 +498,7 @@ public class CRichlet extends GenericRichlet {
 
     							Image ImageModule = new Image();
 
-    							ImageModule.setSrc( UIModuleDesktopInstance.getIconPath( "32x32" ) );
+    							ImageModule.setSrc( UIModuleDesktopInstance.getMainIconPath( "24x24" ) );
 
     							ModulesLoaded.insertBefore( ImageModule, OldImageModule );
 
