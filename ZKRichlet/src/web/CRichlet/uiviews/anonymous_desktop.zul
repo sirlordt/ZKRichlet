@@ -1,11 +1,23 @@
 <?page title="anonymous desktop" contentType="text/html;charset=UTF-8"?>
 <zk>
-    <!-- anonymous desktop -->
+    <!-- anonymous desktop layout -->
+    
     <borderlayout apply="ZKRichlet.CAnonymousDesktopController" id="DesktopLayout" width="1024px" height="768px">
-        <north style="background-color: red" autoscroll="true" height="150px" border="none">
+        
+        <north id="TopZone" style="background-color: red" autoscroll="true" height="150px" border="none">
+        
+            <hlayout id="TopHLayout" spacing="0">
+            
+            
+            
+            </hlayout>
+            
         </north>
-        <west style="background-color: yellow" autoscroll="true" width="200px" border="none">
-                <vlayout id="LeftVLayout" spacing="0">
+        
+        <west id="LeftZone" style="background-color: yellow" autoscroll="true" width="200px" border="none">
+              
+            <vlayout id="LeftVLayout" spacing="0">
+            
                     <panel width="100%" border="normal"
                         title="Navigation">
                         <panelchildren style="padding:5px;">
@@ -32,9 +44,12 @@
                             </html>
                         </panelchildren>
                     </panel>
-                </vlayout>        
+            
+            </vlayout>
+                    
         </west>
-        <center style="background-color: #00FFFF" autoscroll="true" border="none">
+        
+        <center id="CenterZone" style="background-color: #00FFFF" autoscroll="true" border="none">
         
             <hbox align="center" pack="center" vflex="1" hflex="1" >
                  
@@ -46,7 +61,11 @@
             </hbox>
         
         </center>
-        <east style="background-color: blue" autoscroll="true" width="200px" border="none">
+        
+        <east id="RightZone" style="background-color: blue" autoscroll="true" width="200px" border="none">
+
+            <vlayout id="RightVLayout" spacing="0">
+
                     <panel width="100%" border="normal"
                         title="Why ZK ? ">
                         <panelchildren>
@@ -59,8 +78,21 @@
                             </html>
                         </panelchildren>
                     </panel>
+            
+            </vlayout>
+
         </east>
-        <south style="background-color: green" autoscroll="true" height="150px" border="none">
+        
+        <south id="BottomZone" style="background-color: green" autoscroll="true" height="150px" border="none">
+        
+            <hlayout id="BottomHLayout" spacing="0">
+            
+            
+            
+            </hlayout>
+        
         </south>
+        
     </borderlayout>
+    
 </zk>

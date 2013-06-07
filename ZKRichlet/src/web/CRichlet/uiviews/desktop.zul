@@ -1,16 +1,63 @@
 <?page title="desktop" contentType="text/html;charset=UTF-8"?>
 <zk>
-    <!-- anonymous desktop -->
-    <borderlayout hflex="1" vflex="1">
-        <north title="north" height="100px" flex="true" maxsize="250" splittable="true" collapsible="true">
+    <!-- logged desktop -->
+    
+    <borderlayout apply="ZKRichlet.CDesktopController" id="DesktopLayout" width="1024px" height="768px">
+       
+        <north id="TopZone" style="background-color: red" autoscroll="true" height="150px" collapsible="true">
+        
+            <hlayout id="TopHLayout" spacing="0">
+            
+            
+            
+            </hlayout>
+            
         </north>
-        <west title="west" width="100px" flex="true" maxsize="250" splittable="true" collapsible="true">
+       
+        <west id="LeftZone" style="background-color: yellow" autoscroll="true" width="200px" border="none">
+              
+            <vlayout id="LeftVLayout" spacing="0">
+            
+            
+            
+            </vlayout>
+            
         </west>
-        <center autoscroll="true" border="none">
+       
+        <center id="CenterZone" style="background-color: #00FFFF" autoscroll="true" border="none">
+        
+            <hbox align="center" pack="center" vflex="1" hflex="1" >
+                 
+                 <vlayout id="InnerCenterLayout" >
+                 
+                 
+                 
+                 </vlayout>
+                 
+            </hbox>
+        
         </center>
-        <east title="east" width="100px" flex="true" maxsize="250" splittable="true" collapsible="true">
+       
+        <east id="RightZone" style="background-color: blue" autoscroll="true" width="200px" border="none">
+
+            <vlayout id="RightVLayout" spacing="0">
+
+
+            
+            </vlayout>
+
         </east>
-        <south title="south" height="100px" flex="true" maxsize="250" splittable="true" collapsible="true">
+        
+        <south id="BottomZone" style="background-color: green" autoscroll="true" height="150px" border="none">
+        
+            <hlayout id="BottomHLayout" spacing="0">
+            
+            
+            
+            </hlayout>
+        
         </south>
+        
     </borderlayout>
+    
 </zk>

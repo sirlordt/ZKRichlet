@@ -127,7 +127,7 @@
         
                    <div>
 
-              	      <label id="lbMessageProgress" value="Starting..." />
+              	      <label id="lbMessageProgress" value="" />
 
               	      <separator height="5px"></separator>
 
@@ -139,7 +139,7 @@
         
         </borderlayout>
     
-        <timer id="LoadTimer" delay="1000" repeats="true"/>
+        <timer id="LoadTimer" delay="100" repeats="false"/>
 
     </window>
     

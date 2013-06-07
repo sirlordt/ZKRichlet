@@ -6,6 +6,8 @@ import org.zkoss.zk.ui.event.Event;
 import org.zkoss.zk.ui.select.SelectorComposer;
 import org.zkoss.zk.ui.select.annotation.Listen;
 import org.zkoss.zk.ui.select.annotation.Wire;
+import org.zkoss.zk.ui.select.annotation.WireVariable;
+import org.zkoss.zk.ui.Desktop;
 import org.zkoss.zk.ui.Executions;
 import org.zkoss.zk.ui.Session;
 import org.zkoss.zk.ui.Sessions;
@@ -53,13 +55,18 @@ public class CSplashScreenController extends SelectorComposer<Component> {
 	@Wire
 	Timer LoadTimer; 
 
-	int intActualProgress = 0;
+	@WireVariable
+    Desktop desktop;
+	
+	/*int intActualProgress = 0;
 	
 	int intMax = 15;
 	
 	Image OldImageModule = null;
 	
-	int intCountModule = 1;
+	int intCountModule = 1;*/
+	
+	CRichlet MainModule = null;
 	
 	public void doAfterCompose( Component component ) throws Exception {
 
@@ -91,6 +98,8 @@ public class CSplashScreenController extends SelectorComposer<Component> {
 		
 		lbProductVersion.setValue( strValue );
 		
+		MainModule = (CRichlet) Executions.getCurrent().getArg().get( "MainModule" );
+		
 	}
 
 	@Listen( "onClientInfo = #SplashScreen")
@@ -106,7 +115,22 @@ public class CSplashScreenController extends SelectorComposer<Component> {
 	@Listen( "onTimer = #LoadTimer" )
     public void onTimerLoad( Event event ) {
 		
-		intActualProgress += 1;
+		if ( MainModule != null ) {
+
+			MainModule.LoadModules( desktop, ModulesLoaded, lbMessageProgress, ProgressBar );
+			
+		}
+		else {
+			
+			Session session = Sessions.getCurrent();
+
+			session.setAttribute( "app_initiated", "1" );
+
+			Executions.sendRedirect( null );
+			
+		}
+		
+		/*intActualProgress += 1;
 		
 		if ( intActualProgress == intMax + 1 ) {
 		
@@ -138,7 +162,10 @@ public class CSplashScreenController extends SelectorComposer<Component> {
 			if ( intCountModule > 15 )
 				intCountModule = 1; 
 		
-		}
+		}*/
+		
+		
+		
 		
 	};
 	
